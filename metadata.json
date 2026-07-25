@@ -1,0 +1,6 @@
+{
+  "name": "Gooseletters",
+  "description": "A modern news reader in the classic, editorial style of The New York Times, powered by The Guardian API.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
