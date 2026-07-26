@@ -32,7 +32,14 @@ jobs:
             -dname "CN=Android Debug,O=Android,C=US"
 
       - name: Build debug APK
-        run: gradle assembleDebug --stacktrace
+        run: gradle assembleDebug --stacktrace --info > gradle-log.txt 2>&1 || (tail -n 300 gradle-log.txt && exit 1)
+
+      - name: Upload full build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gradle-full-log
+          path: gradle-log.txt
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
